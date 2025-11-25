@@ -1,0 +1,266 @@
+app.js
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import Home from "./pages/Home";
+import About from "./pages/About";
+import Contact from "./pages/Contact";
+
+function App() {
+  return (
+    <BrowserRouter>
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/about" element={<About />} />
+        <Route path="/contact" element={<Contact />} />
+
+        <Route path="*" element={<h1>Page Not Found</h1>} />
+      </Routes>
+    </BrowserRouter>
+  );
+}
+
+export default App;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+app.css
+/* Page */
+body {
+    margin: 0;
+    padding: 0;
+    font-family: "Poppins", sans-serif;
+    background: linear-gradient(135deg, #2ca7a3, #084b7d);
+    color: white;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+/* Navbar */
+.navbar {
+    width: 100%;
+    padding: 20px 0;
+    display: flex;
+    justify-content: center;
+    gap: 40px;
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(6px);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    border-bottom: 1px solid rgba(255,255,255,0.2);
+}
+
+.my-link {
+    font-size: 22px;
+    color: white;
+    text-decoration: none;
+    font-weight: 600;
+    transition: 0.3s;
+}
+
+.my-link:hover {
+    color: #ffeb3b;
+    transform: scale(1.1);
+}
+
+/* Page Content */
+.content {
+    text-align: center;
+    margin-top: 70px;
+}
+
+h1 {
+    font-size: 80px;
+    margin-bottom: 10px;
+}
+
+p {
+    font-size: 22px;
+}
+
+/* Images */
+.home-img {
+    width: 260px;
+    margin-top: 20px;
+    border-radius: 20px;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.4);
+    transition: 0.4s;
+}
+
+.home-img:hover {
+    transform: scale(1.05);
+    box-shadow: 0 15px 30px rgba(0,0,0,0.6);
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ in side component page  navigation.jsx
+import { Link } from "react-router-dom";
+import "../App.css";
+
+const Navigation = () => {
+  return (
+    <div className="navbar">
+      <Link className="my-link" to="/">Home</Link>
+      <Link className="my-link" to="/about">About</Link>
+      <Link className="my-link" to="/contact">Contact</Link>
+    </div>
+  );
+};
+
+export default Navigation;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+inside pages folder home.js
+import Navigation from "../components/Navigation";
+
+const Home = () => {
+  return (
+    <>
+      <Navigation />
+      <div className="content">
+        <h1>Home</h1>
+        <p>Welcome to the home page</p>
+
+        <img
+          className="home-img"
+          src="https://media.istockphoto.com/id/1312128591/vector/home-icon-vector-house-sign.jpg?s=612x612&w=0&k=20&c=jxUT546g8Cfgv1SiAfh2Eos46XI3DqYvPLhxGFaobpE="
+          alt="Home"
+        />
+      </div>
+    </>
+  );
+};
+
+export default Home;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+concact.js
+import Navigation from "../components/Navigation";
+
+const Contact = () => {
+  return (
+    <>
+      <Navigation />
+      <div className="content">
+        <h1>Contact</h1>
+        <p>Welcome to the contact page</p>
+        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSkong7ZMN6W4b2ElbvVnrGr7uhV5DMTmGFmQ&s" alt="contact"/>
+      </div>
+    </>
+  );
+};
+
+export default Contact;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+about.js
+import Navigation from "../components/Navigation";
+
+const About = () => {
+  return (
+    <>
+      <Navigation />
+      <div className="content">
+        <h1>About</h1>
+        <p>This is the About page</p>
+ <img src="https://w7.pngwing.com/pngs/257/702/png-transparent-about-us-logo-business-logo-company-brand-service-icon-about-us-hd-miscellaneous-blue-text-thumbnail.png " alt="about"/>
+      </div>
+    </>
+  );
+};
+
+export default About;
+
+
+
+
+
+
+
+
